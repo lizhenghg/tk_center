@@ -39,14 +39,14 @@ public class TkSchedulerApplication {
             configPath = String.format("%s/config/", appBasePath);
         }
 
-        //启动全局应用程序log4j
+        //启动全局应用程序log4j，每60000毫秒监控一次log4j.xml内容是否改动，动态更改日志等级
         String log4jPath = String.format("%slog4j.xml", configPath);
         DOMConfigurator.configureAndWatch(log4jPath, 1875 << 5); //60000豪秒
 
-        //tk_cache子模块应用程序初始化
+        //tk_cache子模块应用程序初始化(初始化cache)
         CacheServer.init(configPath);
 
-        //初始化MQ
+        //tk_mq子模块应用程序初始化(初始化MQ)
         MQClient.init(configPath);
         //设置消费者监听器
         MQClient.getInstance().setHandler(TaskCenterHandler.getInstance());

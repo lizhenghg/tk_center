@@ -8,6 +8,17 @@ import com.web.tk.scheduler.component.IProducerComponent;
 import com.web.tk.scheduler.component.implement.ProducerComponent;
 import com.web.tk_communicate.http.context.HttpContext;
 
+/**
+ * 生产者操作相关handler
+ * <br/>=================================
+ * <br/>公司：xxx公司
+ * <br/>开发：lizhenghg<xxxx@lizhenghg.com>
+ * <br/>版本：1.0.0
+ * <br/>创建时间：2019-3-23
+ * <br/>jdk版本：1.8
+ * <br/>=================================
+ */
+
 @HttpRouterInfo(router = "/api/v1/producer")
 public class ProducerHandler {
 
