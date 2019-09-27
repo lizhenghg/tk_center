@@ -86,7 +86,7 @@ public class JMSProducer implements ExceptionListener {
                 try {
                     sendMsg(queue, object);
                 } catch (Exception ex) {
-                    LOGGER.error("fail to send message, error: {}, queeu: {}", ex.getMessage(), queue, ex);
+                    LOGGER.error("fail to send message, error: {}, queue: {}", ex.getMessage(), queue);
                 }
             }
         });
