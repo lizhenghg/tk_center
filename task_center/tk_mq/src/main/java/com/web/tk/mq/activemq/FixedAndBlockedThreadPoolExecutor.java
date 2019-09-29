@@ -34,11 +34,11 @@ public class FixedAndBlockedThreadPoolExecutor extends ThreadPoolExecutor {
     @Override
     public void execute(Runnable command) {
         this.lock.lock();
-        super.execute(command);
         try {
-            if (getPoolSize() == getMaximumPoolSize()) {
-                this.condition.await();
+            while (getPoolSize() == getMaximumPoolSize()) {
+                this.condition.await();//释放锁并挂起，再次获取锁的时候，执行判断while条件，成立就往下执行
             }
+            super.execute(command);
         } catch (InterruptedException ex) {
             ex.getStackTrace();
         } finally {
@@ -56,7 +56,7 @@ public class FixedAndBlockedThreadPoolExecutor extends ThreadPoolExecutor {
         super.afterExecute(r, t);
         try {
             this.lock.lock();
-            this.condition.signal();
+            this.condition.signalAll();
         } finally {
             this.lock.unlock();
         }
