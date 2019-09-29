@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 简单支持堵塞固定大小线程池操作类
+ * 支持堵塞固定大小线程池操作类
  * <br/>========================================
  * <br/>公司：xxx
  * <br/>开发：lizhenghg<xxxx@lizhenghg.com>
