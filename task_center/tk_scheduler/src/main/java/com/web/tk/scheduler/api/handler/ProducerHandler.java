@@ -7,6 +7,7 @@ import com.web.tk.scheduler.api.response.SimpleResponse;
 import com.web.tk.scheduler.component.IProducerComponent;
 import com.web.tk.scheduler.component.implement.ProducerComponent;
 import com.web.tk_communicate.http.context.HttpContext;
+import com.web.tk_communicate.http.handler.AbstractHttpWorkerHandler;
 
 /**
  * 生产者操作相关handler
@@ -20,7 +21,7 @@ import com.web.tk_communicate.http.context.HttpContext;
  */
 
 @HttpRouterInfo(router = "/api/v1/producer")
-public class ProducerHandler {
+public class ProducerHandler extends AbstractHttpWorkerHandler {
 
     private IProducerComponent producerComponent = new ProducerComponent();
 
